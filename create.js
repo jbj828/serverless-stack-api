@@ -9,7 +9,7 @@ export const main = handler(async (event, context) => {
     TableName: process.env.tableName,
     Item: {
       // The attributes of the item to be created
-      userId: "123",
+      userId: event.requestContext.identity.cognitoIdentityId,
       noteId: uuid.v1(),
       content: data.content,
       attachment: data.attachment,
